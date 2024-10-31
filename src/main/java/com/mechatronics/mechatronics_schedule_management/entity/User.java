@@ -22,6 +22,7 @@ public class User {
     private Set<String > roles;
     private boolean availability;
     private Date updatedAt;
+    private String email;
 
     @OneToOne
     private Task task;
