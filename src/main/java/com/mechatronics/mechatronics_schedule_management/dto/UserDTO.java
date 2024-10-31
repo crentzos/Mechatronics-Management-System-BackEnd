@@ -2,9 +2,11 @@ package com.mechatronics.mechatronics_schedule_management.dto;
 
 
 
+import com.mechatronics.mechatronics_schedule_management.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -13,8 +15,8 @@ import java.util.Set;
 public class UserDTO {
     private Long id;
     private String username;
-    private Set<String > roles;
+    private Set<Role> roles;
     private boolean availability;
-    private Date updatedAt;
+    private LocalDateTime updatedAt;
     private String email;
 }

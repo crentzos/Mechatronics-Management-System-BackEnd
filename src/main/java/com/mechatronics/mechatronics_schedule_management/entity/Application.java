@@ -1,6 +1,6 @@
 package com.mechatronics.mechatronics_schedule_management.entity;
 
-import com.mechatronics.mechatronics_schedule_management.enums.ApplicationStatus;
+import com.mechatronics.mechatronics_schedule_management.enums.Status;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
@@ -12,7 +12,7 @@ public class Application {
     private Long id;
     private Date appliedAt;
     @Enumerated(EnumType.STRING)
-    private ApplicationStatus applicationStatus;
+    private Status status;
 
     @OneToMany
     private Task task;

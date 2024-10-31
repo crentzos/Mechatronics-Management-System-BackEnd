@@ -1,6 +1,6 @@
 package com.mechatronics.mechatronics_schedule_management.enums;
 
-public enum ApplicationStatus {
+public enum Status {
     PENDING,
     APPROVED,
     REJECTED,
