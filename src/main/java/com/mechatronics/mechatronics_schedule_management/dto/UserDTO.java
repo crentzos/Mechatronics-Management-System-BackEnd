@@ -13,7 +13,6 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 public class UserDTO {
-    private Long id;
     private String username;
     private Set<Role> roles;
     private boolean availability;

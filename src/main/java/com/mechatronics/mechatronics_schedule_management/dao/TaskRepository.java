@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
-    Page<Task> findByTitleContaining(@Param("title") String title, Pageable pageable);
+    Page<Task> findByTitle(@Param("title") String title, Pageable pageable);
 
     Page<Task> findByCreatedBy(@Param("createdBy") String createdBy, Pageable pageable);
 

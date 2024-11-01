@@ -5,13 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 public class ApplicationDTO {
-    private Long id;
-    private Date appliedAt;
+    private Date applicationDate;
     private Long taskId;
     private Long userId;
-    private Status status;
+    private Set<Status> status;
 }
