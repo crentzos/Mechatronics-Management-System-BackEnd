@@ -4,6 +4,7 @@ import com.mechatronics.mechatronics_schedule_management.dao.TaskRepository;
 import com.mechatronics.mechatronics_schedule_management.dto.TaskDTO;
 import com.mechatronics.mechatronics_schedule_management.entity.Task;
 import com.mechatronics.mechatronics_schedule_management.mapper.TaskMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +14,10 @@ import java.util.stream.Collectors;
 @Service
 public class TaskService {
 
-    private TaskRepository taskRepository;
+    private final TaskRepository taskRepository;
     private final TaskMapper taskMapper;
 
+    @Autowired
     public TaskService(TaskMapper taskMapper, TaskRepository taskRepository) {
         this.taskMapper = taskMapper;
         this.taskRepository = taskRepository;
