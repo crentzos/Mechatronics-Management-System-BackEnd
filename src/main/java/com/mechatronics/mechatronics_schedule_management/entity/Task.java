@@ -30,4 +30,15 @@ public class Task {
     @ManyToOne
     private User createdBy;
 
+    public Task(String title, String description, LocalDateTime postedDate, LocalDateTime expirationDate, int availablePositions, Role role, Status status, String location, User createdBy) {
+        this.title = title;
+        this.description = description;
+        this.postedDate = postedDate;
+        this.expirationDate = expirationDate;
+        this.availablePositions = availablePositions;
+        this.role = role;
+        this.status = status;
+        this.location = location;
+        this.createdBy = createdBy;
+    }
 }

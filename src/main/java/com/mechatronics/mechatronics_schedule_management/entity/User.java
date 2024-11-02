@@ -4,8 +4,6 @@ import com.mechatronics.mechatronics_schedule_management.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 
 import java.util.List;
@@ -30,4 +28,11 @@ public class User {
     @OneToMany(mappedBy = "createdBy")
     private Set<Task> tasks;
 
+    public User(String username, Set<Role> roles, boolean availability, String email, Set<Task> tasks) {
+        this.username = username;
+        this.roles = roles;
+        this.availability = availability;
+        this.email = email;
+        this.tasks = tasks;
+    }
 }
