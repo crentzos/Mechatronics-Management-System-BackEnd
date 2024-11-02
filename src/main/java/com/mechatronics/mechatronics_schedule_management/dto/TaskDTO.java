@@ -11,7 +11,6 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 public class TaskDTO {
-        private Long id;
         private String title;
         private String description;
         private LocalDateTime postedDate;

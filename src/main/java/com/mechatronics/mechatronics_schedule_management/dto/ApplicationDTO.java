@@ -9,7 +9,6 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 public class ApplicationDTO {
-    private Long id;
     private Date appliedAt;
     private Long taskId;
     private Long userId;

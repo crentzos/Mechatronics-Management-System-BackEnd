@@ -13,7 +13,6 @@ public class Application {
     private Date appliedAt;
     @Enumerated(EnumType.STRING)
     private Status status;
-
     @OneToMany
     private Task task;
     @ManyToOne
