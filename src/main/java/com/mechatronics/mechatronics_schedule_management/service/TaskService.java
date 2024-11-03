@@ -56,7 +56,7 @@ public class TaskService {
         try {
             if (taskRepository.existsById(id)) {
                 Task task = taskMapper.taskDTOToTask(taskDTO);
-                task.setId(id);
+                taskMapper.updateTaskFromDTO(taskDTO, task);
                 Task updatedTask = taskRepository.save(task);
                 return taskMapper.taskToTaskDTO(updatedTask);
             }

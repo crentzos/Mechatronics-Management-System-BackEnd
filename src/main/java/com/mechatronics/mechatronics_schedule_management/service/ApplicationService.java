@@ -53,7 +53,7 @@ public class ApplicationService {
         try {
             if (applicationRepository.existsById(id)) {
                 Application application = applicationMapper.applicationDTOToApplication(applicationDTO);
-                application.setId(id);
+                applicationMapper.updateApplicationFromDTO(applicationDTO, application);
                 Application updatedApplication = applicationRepository.save(application);
                 return applicationMapper.applicationToApplicationDTO(updatedApplication);
             }

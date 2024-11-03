@@ -54,7 +54,7 @@ public class UserService {
         try{
             if (userRepository.existsById(id)){
                 User user = userMapper.userDTOToUser(userDTO);
-                user.setId(id);
+                userMapper.updateUserFromDTO(userDTO, user);
                 User updateUser = userRepository.save(user);
                 return userMapper.userToUserDTO(updateUser);
             }
