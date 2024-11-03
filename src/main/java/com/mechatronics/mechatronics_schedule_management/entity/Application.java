@@ -11,23 +11,29 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "applications")
 public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "application_date")
     private LocalDateTime applicationDate;
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private Status status;
 
     @OneToMany
-    private List<Task> task;
+    private List<Task> tasks;
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    public Application(LocalDateTime applicationDate, Status status, List<Task> task, User user) {
+    public Application(LocalDateTime applicationDate, Status status, List<Task> tasks, User user) {
         this.applicationDate = applicationDate;
         this.status = status;
-        this.task = task;
+        this.tasks = tasks;
         this.user = user;
     }
 }
