@@ -28,7 +28,7 @@ public class ApplicationService {
             Application createdApplication = applicationRepository.save(application);
             return applicationMapper.applicationToApplicationDTO(createdApplication);
         } catch (Exception e) {
-            throw new RuntimeException("Error creating application: " + e.getMessage());
+            throw new RuntimeException("Error creating application: " + e.getMessage(), e);
         }
     }
 
@@ -36,7 +36,7 @@ public class ApplicationService {
         try {
             return applicationRepository.findAll().stream().map(applicationMapper::applicationToApplicationDTO).collect(Collectors.toList());
         } catch (Exception e) {
-            throw new RuntimeException("Error getting applications: " + e.getMessage());
+            throw new RuntimeException("Error getting applications: " + e.getMessage(), e);
         }
     }
 
@@ -45,7 +45,7 @@ public class ApplicationService {
             Optional<Application> applicationOptional = applicationRepository.findById(id);
             return applicationOptional.map(applicationMapper::applicationToApplicationDTO).orElse(null);
         } catch (Exception e) {
-            throw new RuntimeException("Error getting application: " + e.getMessage());
+            throw new RuntimeException("Error getting application: " + e.getMessage(), e);
         }
     }
 
@@ -59,11 +59,11 @@ public class ApplicationService {
             }
             return null;
         } catch (Exception e) {
-            throw new RuntimeException("Error updating application: " + e.getMessage());
+            throw new RuntimeException("Error updating application: " + e.getMessage(), e);
         }
     }
 
-    public void deleteApplication(Long id) {
+    public boolean deleteApplication(Long id) {
         try{
             if (applicationRepository.existsById(id)) {
                 applicationRepository.deleteById(id);
@@ -71,7 +71,7 @@ public class ApplicationService {
             }
             return false;
         } catch (Exception e) {
-            throw new RuntimeException("Error deleting application: " + e.getMessage());
+            throw new RuntimeException("Error deleting application: " + e.getMessage(), e);
         }
     }
 }

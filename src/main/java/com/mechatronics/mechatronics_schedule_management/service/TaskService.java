@@ -31,7 +31,7 @@ public class TaskService {
 
             return taskMapper.taskToTaskDTO(createdTask);
         } catch (Exception e) {
-            throw new RuntimeException("Task could not be created: " + e.getMessage());
+            throw new RuntimeException("Task could not be created: " + e.getMessage(), e);
         }
     }
 
@@ -39,7 +39,7 @@ public class TaskService {
         try {
             return taskRepository.findAll().stream().map(taskMapper::taskToTaskDTO).collect(Collectors.toList());
         } catch (Exception e) {
-            throw new RuntimeException("Could not retrieve all tasks: " + e.getMessage());
+            throw new RuntimeException("Could not retrieve all tasks: " + e.getMessage(), e);
         }
     }
 
@@ -48,7 +48,7 @@ public class TaskService {
             Optional<Task> taskOptional = taskRepository.findById(id);
             return taskOptional.map(taskMapper::taskToTaskDTO).orElse(null);
         } catch (Exception e) {
-            throw new RuntimeException("Could not retrieve task by id: " + e.getMessage());
+            throw new RuntimeException("Could not retrieve task by id: " + e.getMessage(), e);
         }
     }
 
@@ -62,7 +62,7 @@ public class TaskService {
             }
             return null;
         } catch (Exception e) {
-            throw new RuntimeException("Could not update task by id: " + e.getMessage());
+            throw new RuntimeException("Could not update task by id: " + e.getMessage(), e);
         }
     }
 
@@ -74,7 +74,7 @@ public class TaskService {
             }
             return false;
         } catch (Exception e) {
-            throw new RuntimeException("Could not delete task by id: " + e.getMessage());
+            throw new RuntimeException("Could not delete task by id: " + e.getMessage(), e);
         }
     }
 }
