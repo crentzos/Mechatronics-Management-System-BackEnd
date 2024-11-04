@@ -25,6 +25,7 @@ public class Application {
     private Status status;
 
     @OneToMany
+    @JoinColumn(name = "task_id")
     private List<Task> tasks;
     @ManyToOne
     @JoinColumn(name = "user_id")

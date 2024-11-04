@@ -23,11 +23,19 @@ public class User {
     @ElementCollection(fetch = FetchType.LAZY)
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+
+    @Column(name = "availability")
     private boolean availability;
+
+    @Column(name = "email")
     private String email;
 
     @OneToMany(mappedBy = "createdBy")
+    @JoinColumn(name = "task_id")
     private Set<Task> tasks;
+
+    @OneToMany(mappedBy = "user")
+    private List<Application> applications;
 
     public User(String username, Set<Role> roles, boolean availability, String email, Set<Task> tasks) {
         this.username = username;

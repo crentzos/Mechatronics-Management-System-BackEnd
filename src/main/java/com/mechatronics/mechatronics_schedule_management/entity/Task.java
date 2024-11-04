@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -28,7 +29,13 @@ public class Task {
     private Status status;
     private String location;
     @ManyToOne
+    @JoinColumn(name = "createdBy")
     private User createdBy;
+
+
+    @OneToMany(mappedBy = "task")
+    private List<Application> applications;
+
 
     public Task(String title, String description, LocalDateTime postedDate, LocalDateTime expirationDate, int availablePositions, Role role, Status status, String location, User createdBy) {
         this.title = title;

@@ -4,5 +4,6 @@ public enum Role {
     ADMIN,
     TEAM_LEADER,
     MECHANIC,
-    ELECTRICIAN
+    ELECTRICIAN,
+    USER
 }
