@@ -31,7 +31,7 @@ public class TaskController {
         return new ResponseEntity<>(allTasks, HttpStatus.OK);
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<TaskDTO> getTaskById(@PathVariable Long id) {
         TaskDTO task = taskService.getTaskById(id);
         if (task != null) {
@@ -41,7 +41,7 @@ public class TaskController {
         }
     }
 
-    @PutMapping("{/id}")
+    @PutMapping("/{id}")
     public ResponseEntity<TaskDTO> updateTask(@PathVariable Long id, @RequestBody TaskDTO taskDTO) {
         TaskDTO updatedTask = taskService.updateTask(id, taskDTO);
         if (updatedTask != null) {
@@ -51,7 +51,7 @@ public class TaskController {
         }
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void>  deleteTask(@PathVariable Long id) {
         boolean taskDeleted = taskService.deleteTask(id);
         if (taskDeleted) {
