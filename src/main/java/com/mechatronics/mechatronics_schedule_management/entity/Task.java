@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
@@ -28,6 +28,7 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Status status;
     private String location;
+
     @ManyToOne
     @JoinColumn(name = "createdBy")
     private User createdBy;

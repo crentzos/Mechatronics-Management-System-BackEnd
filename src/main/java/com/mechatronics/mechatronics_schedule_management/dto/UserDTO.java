@@ -1,5 +1,6 @@
 package com.mechatronics.mechatronics_schedule_management.dto;
 
+
 import com.mechatronics.mechatronics_schedule_management.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -17,7 +17,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     Page<Task> findByCreatedBy(@Param("createdBy") String createdBy, Pageable pageable);
 
-    Page<Task> findByCreatedAtAfter(@Param("createdAt") LocalDateTime createdAt, Pageable pageable);
+    Page<Task> findByPostedDate(@Param("postedDate") LocalDateTime postedDate, Pageable pageable);
 
     Page<Task> findByRole(@Param("role") Role role, Pageable pageable);
 

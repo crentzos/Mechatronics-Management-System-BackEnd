@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
 
@@ -31,7 +31,6 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "createdBy")
-    @JoinColumn(name = "task_id")
     private Set<Task> tasks;
 
     @OneToMany(mappedBy = "user")

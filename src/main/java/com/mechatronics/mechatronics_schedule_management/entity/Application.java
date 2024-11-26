@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "applications")
 public class Application {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -24,17 +24,17 @@ public class Application {
     @Column(name = "status")
     private Status status;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "task_id")
-    private List<Task> tasks;
+    private Task task;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Application(LocalDateTime applicationDate, Status status, List<Task> tasks, User user) {
+    public Application(LocalDateTime applicationDate, Status status, Task task, User user) {
         this.applicationDate = applicationDate;
         this.status = status;
-        this.tasks = tasks;
+        this.task = task;
         this.user = user;
     }
 }

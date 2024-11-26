@@ -9,14 +9,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.security.core.parameters.P;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
 public interface ApplicationRepository extends JpaRepository<Application, Long> {
-    Page<Application> findByStatus(@Param("status") Set<Status> status, Pageable pageable);
+    @Query("SELECT a FROM Application a WHERE a.status IN :statuses")
+    Page<Application> findByStatus(@Param("statuses") Set<Status> statuses, Pageable pageable);
     Page<Application> findByUser(@Param("user") User user, Pageable pageable);
     Page<Application> findByTask(@Param("task") Task task, Pageable pageable);
     Page<Application> findByApplicationDate(@Param("applicationDate")LocalDateTime applicationDate, Pageable pageable);
