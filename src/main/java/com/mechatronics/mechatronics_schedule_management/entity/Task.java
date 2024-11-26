@@ -29,16 +29,16 @@ public class Task {
     private Status status;
     private String location;
 
-    @ManyToOne
-    @JoinColumn(name = "createdBy")
-    private User createdBy;
+    /*@ManyToOne
+    @JoinColumn(name = "created_by")
+    private User createdBy;*/
 
 
     @OneToMany(mappedBy = "task")
     private List<Application> applications;
 
 
-    public Task(String title, String description, LocalDateTime postedDate, LocalDateTime expirationDate, int availablePositions, Role role, Status status, String location, User createdBy) {
+    public Task(String title, String description, LocalDateTime postedDate, LocalDateTime expirationDate, int availablePositions, Role role, Status status, String location) {
         this.title = title;
         this.description = description;
         this.postedDate = postedDate;
@@ -47,6 +47,5 @@ public class Task {
         this.role = role;
         this.status = status;
         this.location = location;
-        this.createdBy = createdBy;
     }
 }
